@@ -1,4 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
+  
+
+  before_action :set_restaurant, only: [:show, :edit, :update]
 
   def index
     @restaurants = Restaurant.all
@@ -19,17 +22,6 @@ class Admin::RestaurantsController < ApplicationController
     end
   end
 
-  private
-
-  def restaurant_params
-    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description)
-  end
-before_action :set_restaurant, only: [:show, :edit, :update]
-
-  def show
-    @restaurant = Restaurant.find(params[:id])
-  end
-
   def edit
   end
 
@@ -42,13 +34,23 @@ before_action :set_restaurant, only: [:show, :edit, :update]
       render :edit
     end
   end
-  
+
+  def destroy
+    @restaurant.destroy
+    redirect_to admin_restaurants_path
+    flash[:alert] = "restaurant was deleted"
+  end
+
   private
    #其他程式碼
+
+  
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
-
-
+  
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description)
+  end
   
 end
