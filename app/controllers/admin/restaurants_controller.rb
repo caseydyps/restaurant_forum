@@ -22,8 +22,6 @@ class Admin::RestaurantsController < ApplicationController
     end
   end
 
-  def edit
-  end
 
   def update
     if @restaurant.update(restaurant_params)
@@ -50,7 +48,7 @@ class Admin::RestaurantsController < ApplicationController
   end
   
   def restaurant_params
-    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description, :image)
+    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description, :image, :category_id)
   end
   
 end

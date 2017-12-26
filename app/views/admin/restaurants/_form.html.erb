@@ -20,8 +20,11 @@
   <%= f.label :opening_hours, "Opening Hours" %>
   <%= f.text_field :opening_hours %>
 
+  <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, {class: "form-control"} %>
+
   <%= f.label :description, "Description" %>
   <%= f.text_area :description %>
+
 
   <%= f.label :image, "Photo" %>
   <%= image_tag @restaurant.image, width: '300px' if @restaurant.image? %>
