@@ -5,9 +5,10 @@
   <div class="row">
 
     <div class="col-md-12">
+
       <div>
-              <%= link_to 'Restaurant', admin_restaurants_path %> |
-              <%= link_to 'Categories', admin_categories_path %>
+        <%= link_to 'Restaurant', admin_restaurants_path %> |
+        <%= link_to 'Categories', admin_categories_path %>
       </div>
       <br>
       <div>
@@ -40,6 +41,7 @@
       </table>
 
       <div class="text-center">
+        <!-- paginate 是kaminari的hepler，可以幫我們產出分頁按鈕的html -->
         <%= paginate @restaurants %>
       </div>
 
