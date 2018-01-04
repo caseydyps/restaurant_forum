@@ -11,7 +11,7 @@
 
   <body>
 
-   <nav class="navbar navbar-inverse">
+   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
        <div class="container-fluid">
          <!-- Brand and toggle get grouped for better mobile display -->
          <div class="navbar-header">
@@ -31,6 +31,7 @@
                   <li><%= link_to 'Admin後台', admin_restaurants_path %></li>
                 <% end %>
               <li><p class="navbar-text">Hi, <%= current_user.email %></p></li>
+              <li><%= link_to 'Profile', user_path(current_user) %></li>
               <li><%= link_to('登出', destroy_user_session_path, method: :delete) %></li>
               <li><%= link_to('修改密碼', edit_user_registration_path) %></li>
               <% else %>
