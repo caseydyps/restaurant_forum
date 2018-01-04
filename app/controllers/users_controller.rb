@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @commented_restaurants = @user.restaurants.uniq
   end
 
+
   def edit
     unless @user == current_user
       redirect_to user_path(@user)
