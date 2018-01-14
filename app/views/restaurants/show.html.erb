@@ -18,10 +18,10 @@
       </div>
     </div>
     <div class="col-md-8">
-    <blockquote>
       <%= simple_format @restaurant.description %>
+      <hr>
+      <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant), class: "btn btn-primary" %>
 
-    </blockquote>
     </div>
 
     <div class="clearfix"></div>
@@ -62,9 +62,5 @@
   </div>
 </div>
 
- <nav aria-label>
-    <ul class="pager">
-      <li><%= link_to 'Back to index', restaurants_path %></li>
-    </ul>
-  </nav>
+
 
