@@ -27,6 +27,12 @@ Rails.application.routes.draw do
       post :unfavorite
     end
 
+    member do
+      # 其他程式碼
+      post :like
+      post :unlike
+    end
+
   end
 
 
