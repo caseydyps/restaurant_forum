@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   root "restaurants#index"
 
-  resources :users, only: [:show, :edit, :update]
+  # 將 :index 加入開放項目
+  resources :users, only: [:index, :show, :edit, :update]
 
+  resources :followships, only: [:create, :destroy]
 
   namespace :admin do
     resources :restaurants
@@ -34,6 +36,8 @@ Rails.application.routes.draw do
       post :like
       post :unlike
     end
+
+
 
   end
 
