@@ -49,8 +49,11 @@
     <hr>
     <% end %>
 
-    <%= link_to 'Favorite', favorite_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
-    <%= link_to 'Unfavorite', unfavorite_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
+    <% if @restaurant.is_favorited?(current_user) %>
+      <%= link_to 'Unfavorite', unfavorite_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
+    <% else %>
+      <%= link_to 'Favorite', favorite_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
+    <% end %>
 
 
     <!-- 新增評論的表單輸入框 -->
