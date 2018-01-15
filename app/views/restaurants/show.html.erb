@@ -49,6 +49,10 @@
     <hr>
     <% end %>
 
+    <%= link_to 'Favorite', favorite_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
+    <%= link_to 'Unfavorite', unfavorite_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
+
+
     <!-- 新增評論的表單輸入框 -->
     <%= form_for [@restaurant, @comment] do |f| %>
     <div class="form-group">
