@@ -50,11 +50,7 @@
     <% end %>
 
     <%= render partial: "shared/favorite", locals: {restaurant: @restaurant} %>
-    <% if @restaurant.is_liked?(current_user) %>
-      <%= link_to 'Unlike', unlike_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
-    <% else %>
-      <%= link_to 'like', like_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
-    <% end %>
+    <%= render partial: "shared/like", locals: {restaurant: @restaurant} %>
 
     <!-- 新增評論的表單輸入框 -->
     <%= form_for [@restaurant, @comment] do |f| %>
