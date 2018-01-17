@@ -5,6 +5,9 @@ class UsersController < ApplicationController
     @commented_restaurants = @user.restaurants.uniq
   end
 
+  def index
+    @users = User.all
+  end
 
   def edit
     unless @user == current_user
@@ -26,6 +29,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :intro, :avatar)
   end
+
+
+
 
 
 end
