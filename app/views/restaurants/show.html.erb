@@ -6,6 +6,12 @@
       <p>[<%= @restaurant.category.name %>]</p>
     </div>
 
+    <% if current_user.following?(user)%>
+      <%= link_to 'Unfollow', followship_path(user), method: :delete %>
+    <% else %>
+      <%= link_to 'Follow', followships_path(following_id: user), method: :post %>
+    <% end %>
+
     <div class="col-md-4">
       <%= image_tag @restaurant.image, class: "img-responsive center-block" %>
       <br>
