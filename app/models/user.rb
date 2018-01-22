@@ -34,7 +34,7 @@ class User < ApplicationRecord
    # 一個user，可以有很多筆被加為好友的交友紀錄（紀錄在friendships table）
    has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
    # 一個user，可以透過多筆被加為好友的交友紀錄，得知哪些user向自己提出交友(all_friends)
-   has_many :all_friends, through: :inverse_friendships, source: :user
+   has_many :added_friends, through: :inverse_friendships, source: :user
 
   # admin? 讓我們用來判斷單個user是否有 admin 角色，列如：current_user.admin?
   def admin?
@@ -47,6 +47,12 @@ class User < ApplicationRecord
 
   def friend?(user)
      self.friends.include?(user)
+  end
+
+  def all_friends
+     @mix_friends = self.friends.all + self.added_friends.all
+     @mix_friends = @mix_friends.uniq
    end
+
 
 end
